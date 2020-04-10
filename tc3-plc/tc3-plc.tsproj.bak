@@ -43,7 +43,7 @@
 							</Interface>
 						</Interfaces>
 						<Parameters>
-							<Parameter HideParameter="true" CreateSymbol="true">
+							<Parameter CreateSymbol="true">
 								<Name>CppMember</Name>
 								<BitSize>32</BitSize>
 								<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>

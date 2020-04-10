@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_ui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Twincat 3 C++ Beispiele" Height="450" Width="800" Closed="Window_Closed">
+    <Grid RenderTransformOrigin="-3.135,-0.119">
+        <Button Name="btnConnect" Content="connect to localhost" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Click="BtnConnect_Click"/>
+        <TabControl Name="tabPanel" Margin="0,35,0,0" IsEnabled="False">
+            <TabItem Header="Beispiel1">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="86*"/>
+                        <ColumnDefinition Width="307*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Beschreibung" HorizontalAlignment="Left" Height="81" Margin="10,10,0,0" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="2">
+                        <TextBlock TextWrapping="Wrap"><Run Text="Dieses Beispiel zeigt, wie C++ Klassenvariablen über ADS gelesen, geschrieben und Änderungen überwacht werden können."/><LineBreak/><Run Text="Im TMC-Editor muss im jeweiligen Modul unter &quot;Parameters&quot; der Classmember angelegt und &quot;Create Symbols&quot; aktiviert werden."/><LineBreak/><Run Text="Involvierte Module: Modul"/><Run Text="e"/><Run Text="Beispiel1"/></TextBlock>
+                    </GroupBox>
+                    <TextBox Name="txtMember" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+                    <Button Name="btnMemberRead" Content="read" HorizontalAlignment="Left" Margin="156,94,0,0" VerticalAlignment="Top" Width="96" Grid.ColumnSpan="2" Click="BtnMemberRead_Click"/>
+                    <Button Name="btnMemberWrite" Content="write" HorizontalAlignment="Left" Margin="85,94,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" Click="BtnMemberWrite_Click"/>
+                    <Label Content="onChange updates:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="117"/>
+                    <Label Name="lblMemberUpdate" Content="" HorizontalAlignment="Left" Margin="127,119,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -185,6 +185,15 @@
     <Import Project="$(TWINCATSDK)\VsProps\TwinCAT OS DynamicDrv.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="TcSign" Condition="'$(Configuration)|$(Platform)'=='Debug|TwinCAT RT (x64)'">
+    <TcSignWindowsSha1>true</TcSignWindowsSha1>
+  </PropertyGroup>
+  <PropertyGroup Label="TcSign">
+    <TcSignWindowsSha1CertName>MyTestSigningCert</TcSignWindowsSha1CertName>
+  </PropertyGroup>
+  <PropertyGroup Label="TcSign" Condition="'$(Configuration)|$(Platform)'=='Release|TwinCAT RT (x64)'">
+    <TcSignWindowsSha1>true</TcSignWindowsSha1>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|TwinCAT UM (x86)'">
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|TwinCAT UM (x86)'">

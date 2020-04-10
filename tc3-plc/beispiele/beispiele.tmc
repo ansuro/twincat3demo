@@ -21,7 +21,7 @@
         </License>
       </Licenses>
       <InitSequence>PSO</InitSequence>
-      <Contexts />
+      <Contexts ><Context><Id>1</Id></Context></Contexts>
       <Interfaces>
         <Interface DisableCodeGeneration="true">
           <Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
@@ -33,7 +33,7 @@
           <Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
         </Interface>
       </Interfaces>
-      <Parameters />
+      <Parameters ><Parameter CreateSymbol="true" HideParameter="true"><Name>CppMember</Name><BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType><PTCID>#x00000001</PTCID><ContextId>1</ContextId></Parameter></Parameters>
       <DataAreas />
       <InterfacePointers />
       <DataPointers />
