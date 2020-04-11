@@ -9,7 +9,7 @@
     <Grid RenderTransformOrigin="-3.135,-0.119">
         <Button Name="btnConnect" Content="connect to localhost" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="136" Click="BtnConnect_Click"/>
         <TabControl Name="tabPanel" Margin="0,35,0,0" IsEnabled="False">
-            <TabItem Header="Beispiel1">
+            <TabItem Header="Beispiel1" Margin="0,0,-17,-2" RenderTransformOrigin="0.658,0.5">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="86*"/>
@@ -23,6 +23,19 @@
                     <Button Name="btnMemberWrite" Content="write" HorizontalAlignment="Left" Margin="85,94,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" Click="BtnMemberWrite_Click"/>
                     <Label Content="onChange updates:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="117"/>
                     <Label Name="lblMemberUpdate" Content="" HorizontalAlignment="Left" Margin="127,119,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Beispiel 2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="67" Margin="17,0,-17,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="86*"/>
+                        <ColumnDefinition Width="307*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Beschreibung" HorizontalAlignment="Left" Height="104" Margin="10,10,0,0" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="2">
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,-12"><Run Text="Dieses Beispiel zeigt, wie "/><Run Text="Daten über IO-Mapping von einem Modul in ein anderes übertragen werden können und die Daten mit über ADS verfügbar gemacht werden können. Es wird eine Struktur mit zwei Variablen übertragen."/><LineBreak/><Run Text="BETA: Es werden nur 4 anstatt 8 Bytes übertragen / dargestellt."/><LineBreak/><Run Text="Involvierte Module:"/><Run Text=" ModuleBeispiel2Out stellt Daten für ModuleBeispiel2In bereit und dieses macht die Daten per ADS verfügbar (&quot;create symbols&quot;)"/></TextBlock>
+                    </GroupBox>
+                    <Label Content="onChange updates:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="117"/>
+                    <Label Name="lblServiceUpdate" Content="" HorizontalAlignment="Left" Margin="127,119,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>
                 </Grid>
             </TabItem>
         </TabControl>

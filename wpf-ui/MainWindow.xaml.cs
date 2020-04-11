@@ -42,6 +42,7 @@ namespace wpf_ui
                 tabPanel.IsEnabled = true;
                 btnConnect.IsEnabled = false;
                 initBsp1();
+                initBsp2();
             }
             else
             {
@@ -55,6 +56,7 @@ namespace wpf_ui
         private void Window_Closed(object sender, EventArgs e)
         {
             disposeBsp1();
+            disposeBsp2();
             adsClient.Disconnect();
             adsClient.Dispose();
         }
@@ -74,6 +76,17 @@ namespace wpf_ui
             {
                 // example 1 notification
                 result = reader.ReadUInt32().ToString();
+            }
+            else if (e.NotificationHandle.Equals(bsp2NotificationHandle))
+            {
+                // TODO
+                // example 2 notification
+                Console.WriteLine("Bytes: " + length);
+                UInt32 id = reader.ReadUInt32();
+                //UInt32 value = reader.ReadUInt32();
+                result = "id: " + id;// + " value: " + value;
+                Console.WriteLine(id);
+                
             }
             else
             {
@@ -122,5 +135,23 @@ namespace wpf_ui
             }
         }
 
+
+        // Beispiel 2 code
+        private string bsp2Symbole = "beispiele_Obj3 (ModuleBeispiel2In).Members.Fancy";
+        AdsStream bsp2ReadStream = new AdsStream(sizeof(UInt32));
+        private int bsp2NotificationHandle = 0;
+
+
+        private void initBsp2()
+        {
+            // add notification handler
+            bsp2NotificationHandle = adsClient.AddDeviceNotification(bsp2Symbole, bsp2ReadStream, AdsTransMode.OnChange, 200, 0, lblServiceUpdate);
+        }
+
+        private void disposeBsp2()
+        {
+            // delete notification handler
+            adsClient.DeleteDeviceNotification(bsp2NotificationHandle);
+        }
     }
 }

@@ -45,6 +45,12 @@
     <ClInclude Include="ModuleBeispiel1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleBeispiel2Out.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBeispiel2In.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TcPch.cpp">
@@ -66,6 +72,12 @@
       <Filter>TwinCAT OS Files</Filter>
     </ClCompile>
     <ClCompile Include="ModuleBeispiel1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBeispiel2Out.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBeispiel2In.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
