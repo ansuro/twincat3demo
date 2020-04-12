@@ -15,14 +15,14 @@
                         <ColumnDefinition Width="86*"/>
                         <ColumnDefinition Width="307*"/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox Header="Beschreibung" HorizontalAlignment="Left" Height="81" Margin="10,10,0,0" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="2">
-                        <TextBlock TextWrapping="Wrap"><Run Text="Dieses Beispiel zeigt, wie C++ Klassenvariablen über ADS gelesen, geschrieben und Änderungen überwacht werden können."/><LineBreak/><Run Text="Im TMC-Editor muss im jeweiligen Modul unter &quot;Parameters&quot; der Classmember angelegt und &quot;Create Symbols&quot; aktiviert werden."/><LineBreak/><Run Text="Involvierte Module: Modul"/><Run Text="e"/><Run Text="Beispiel1"/></TextBlock>
+                    <GroupBox Header="Beschreibung" HorizontalAlignment="Left" Height="109" Margin="10,10,0,0" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="2">
+                        <TextBlock TextWrapping="Wrap"><Run Text="Dieses Beispiel zeigt, wie C++ Klassenvariablen über ADS gelesen, geschrieben und Änderungen überwacht werden können."/><LineBreak/><Run Text="Im TMC-Editor muss im jeweiligen Modul unter &quot;Parameters&quot; der Classmember angelegt und &quot;Create Symbols&quot; aktiviert werden."/><Run Text=" Parameter dienen der Parametrisierung eines Moduls. Einfache Klassenvariablen können unter einem Standard-Datenbereich angelegt werden und sind ebenso über ADS erreichbar."/><LineBreak/><Run Text="Involvierte Module: Modul"/><Run Text="e"/><Run Text="Beispiel1"/></TextBlock>
                     </GroupBox>
-                    <TextBox Name="txtMember" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
-                    <Button Name="btnMemberRead" Content="read" HorizontalAlignment="Left" Margin="156,94,0,0" VerticalAlignment="Top" Width="96" Grid.ColumnSpan="2" Click="BtnMemberRead_Click"/>
-                    <Button Name="btnMemberWrite" Content="write" HorizontalAlignment="Left" Margin="85,94,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" Click="BtnMemberWrite_Click"/>
-                    <Label Content="onChange updates:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="117"/>
-                    <Label Name="lblMemberUpdate" Content="" HorizontalAlignment="Left" Margin="127,119,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>
+                    <TextBox Name="txtMember" HorizontalAlignment="Left" Height="23" Margin="10,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+                    <Button Name="btnMemberRead" Content="read" HorizontalAlignment="Left" Margin="156,127,0,0" VerticalAlignment="Top" Width="96" Grid.ColumnSpan="2" Click="BtnMemberRead_Click"/>
+                    <Button Name="btnMemberWrite" Content="write" HorizontalAlignment="Left" Margin="85,127,0,0" VerticalAlignment="Top" Width="95" Grid.Column="1" Click="BtnMemberWrite_Click"/>
+                    <Label Content="onChange updates:" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" Width="117"/>
+                    <Label Name="lblMemberUpdate" Content="" HorizontalAlignment="Left" Margin="127,152,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Beispiel 2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="67" Margin="17,0,-17,0">
