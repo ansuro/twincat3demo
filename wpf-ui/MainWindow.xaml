@@ -32,7 +32,7 @@
                         <ColumnDefinition Width="307*"/>
                     </Grid.ColumnDefinitions>
                     <GroupBox Header="Beschreibung" HorizontalAlignment="Left" Height="104" Margin="10,10,0,0" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="2">
-                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,-12"><Run Text="Dieses Beispiel zeigt, wie "/><Run Text="Daten über IO-Mapping von einem Modul in ein anderes übertragen werden können und die Daten mit über ADS verfügbar gemacht werden können. Es wird eine Struktur mit zwei Variablen übertragen."/><LineBreak/><Run Text="BETA: Es werden nur 4 anstatt 8 Bytes übertragen / dargestellt."/><LineBreak/><Run Text="Involvierte Module:"/><Run Text=" ModuleBeispiel2Out stellt Daten für ModuleBeispiel2In bereit und dieses macht die Daten per ADS verfügbar (&quot;create symbols&quot;)"/></TextBlock>
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,-12"><Run Text="Dieses Beispiel zeigt, wie "/><Run Text="Daten über IO-Mapping von einem Modul in ein anderes übertragen werden können und die Daten mit über ADS verfügbar gemacht werden können. Es wird eine Struktur mit zwei Variablen übertragen."/><LineBreak/><Run Text="Involvierte Module:"/><Run Text=" ModuleBeispiel2Out stellt Daten für ModuleBeispiel2In bereit und dieses macht die Daten per ADS verfügbar (&quot;create symbols&quot;)"/></TextBlock>
                     </GroupBox>
                     <Label Content="onChange updates:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="117"/>
                     <Label Name="lblServiceUpdate" Content="" HorizontalAlignment="Left" Margin="127,119,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>

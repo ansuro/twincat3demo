@@ -79,14 +79,10 @@ namespace wpf_ui
             }
             else if (e.NotificationHandle.Equals(bsp2NotificationHandle))
             {
-                // TODO
                 // example 2 notification
-                Console.WriteLine("Bytes: " + length);
                 UInt32 id = reader.ReadUInt32();
-                //UInt32 value = reader.ReadUInt32();
-                result = "id: " + id;// + " value: " + value;
-                Console.WriteLine(id);
-                
+                UInt32 value = reader.ReadUInt32();
+                result = "id: " + id + " value: " + value;
             }
             else
             {
@@ -138,7 +134,7 @@ namespace wpf_ui
 
         // Beispiel 2 code
         private string bsp2Symbole = "beispiele_Obj3 (ModuleBeispiel2In).Members.Fancy";
-        AdsStream bsp2ReadStream = new AdsStream(sizeof(UInt32));
+        AdsStream bsp2ReadStream = new AdsStream(sizeof(UInt32) * 2);
         private int bsp2NotificationHandle = 0;
 
 
