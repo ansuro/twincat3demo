@@ -34,15 +34,13 @@ namespace wpf_ui
             adsClient.AdsNotification += AdsClient_NotificationHandler;
         }
 
-
         private void AdsClient_ConnectionStateChanged(object sender, TwinCAT.ConnectionStateChangedEventArgs e)
         {
             if(e.NewState.Equals(ConnectionState.Connected))
             {
                 tabPanel.IsEnabled = true;
                 btnConnect.IsEnabled = false;
-                initBsp1();
-                initBsp2();
+                InitBeispiele();
             }
             else
             {
@@ -55,8 +53,7 @@ namespace wpf_ui
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            disposeBsp1();
-            disposeBsp2();
+            DisposeBeispiele();
             adsClient.Disconnect();
             adsClient.Dispose();
         }
@@ -77,7 +74,7 @@ namespace wpf_ui
                 // example 1 notification
                 result = reader.ReadUInt32().ToString();
             }
-            else if (e.NotificationHandle.Equals(bsp2NotificationHandle))
+            else if (e.NotificationHandle.Equals(bsp2NotificationHandle) || e.NotificationHandle.Equals(bsp3NotificationHandle))
             {
                 // example 2 notification
                 UInt32 id = reader.ReadUInt32();
@@ -94,22 +91,26 @@ namespace wpf_ui
             Dispatcher.Invoke(() => ((Label)e.UserData).Content = result);
         }
 
+
+        private void InitBeispiele()
+        {
+            // add notification handler
+            bsp1NotificationHandle = adsClient.AddDeviceNotification(bsp1Symbole, bsp1ReadStream, AdsTransMode.OnChange, 200, 0, lblMemberUpdate);
+            bsp2NotificationHandle = adsClient.AddDeviceNotification(bsp2Symbole, bsp2ReadStream, AdsTransMode.OnChange, 200, 0, lblDataUpdate);
+            bsp3NotificationHandle = adsClient.AddDeviceNotification(bsp3Symbole, bsp3ReadStream, AdsTransMode.OnChange, 200, 0, lblServiceUpdate);
+        }
+
+        private void DisposeBeispiele()
+        {
+            // delete notification handler
+            adsClient.DeleteDeviceNotification(bsp1NotificationHandle);
+            adsClient.DeleteDeviceNotification(bsp2NotificationHandle);
+        }
+
         // Beispiel 1 code
         private string bsp1Symbole = "beispiele_Obj1 (ModuleBeispiel1).CppMember";
         AdsStream bsp1ReadStream = new AdsStream(sizeof(UInt32));
         private int bsp1NotificationHandle = 0;
-
-        private void initBsp1()
-        {
-            // add notification handler
-            bsp1NotificationHandle = adsClient.AddDeviceNotification(bsp1Symbole, bsp1ReadStream, AdsTransMode.OnChange, 200, 0, lblMemberUpdate);
-        }
-
-        private void disposeBsp1()
-        {
-            // delete notification handler
-            adsClient.DeleteDeviceNotification(bsp1NotificationHandle);
-        }
 
         private void BtnMemberRead_Click(object sender, RoutedEventArgs e)
         {
@@ -137,17 +138,9 @@ namespace wpf_ui
         AdsStream bsp2ReadStream = new AdsStream(sizeof(UInt32) * 2);
         private int bsp2NotificationHandle = 0;
 
-
-        private void initBsp2()
-        {
-            // add notification handler
-            bsp2NotificationHandle = adsClient.AddDeviceNotification(bsp2Symbole, bsp2ReadStream, AdsTransMode.OnChange, 200, 0, lblServiceUpdate);
-        }
-
-        private void disposeBsp2()
-        {
-            // delete notification handler
-            adsClient.DeleteDeviceNotification(bsp2NotificationHandle);
-        }
+        // Beispiel 3 code
+        private string bsp3Symbole = "beispiele_Obj4 (ModuleBeispiel3Consumer).Data.FancyData";
+        AdsStream bsp3ReadStream = new AdsStream(sizeof(UInt32) * 2);
+        private int bsp3NotificationHandle = 0;
     }
 }

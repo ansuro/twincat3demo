@@ -3,7 +3,18 @@
   <Vendor>
     <Name>C++ Module Vendor</Name>
   </Vendor>
-  <DataTypes><DataType><Name GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</Name><SubItem><Name>Id</Name><Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type></SubItem><SubItem><Name>Value</Name><Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type></SubItem></DataType>
+  <DataTypes>
+    <DataType>
+      <Name GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</Name>
+      <SubItem>
+        <Name>Id</Name>
+        <Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+      </SubItem>
+      <SubItem>
+        <Name>Value</Name>
+        <Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+      </SubItem>
+    </DataType><DataType><Name GUID="{4400d997-c606-47b2-8486-fa74a26f4e2f}">IFancyService</Name><BaseType GUID="{00000001-0000-0000-e000-000000000064}">ITcUnknown</BaseType><Method><Name>GetFancyData</Name><ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType><Parameter><Name>pData</Name><Type GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}" PointerTo="1">FancyData</Type></Parameter></Method></DataType>
   </DataTypes>
   <Groups>
     <Group SortOrder="701">
@@ -111,7 +122,10 @@
           <AreaNo AreaType="OutputSrc">1</AreaNo>
           <Name>Outputs</Name>
           <ContextId>1</ContextId>
-          <Symbol><Name>Fancy</Name><BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType></Symbol>
+          <Symbol>
+            <Name>Fancy</Name>
+            <BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType>
+          </Symbol>
         </DataArea>
       </DataAreas>
       <InterfacePointers>
@@ -200,9 +214,151 @@
         <DataArea>
           <AreaNo AreaType="InputDst">0</AreaNo>
           <Name>Inputs</Name>
-          <ContextId>1</ContextId><Symbol CreateSymbol="true"><Name>Fancy</Name><BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType></Symbol>
-        </DataArea><DataArea><AreaNo AreaType="Standard">2</AreaNo><Name>Members</Name><ContextId>1</ContextId><Symbol CreateSymbol="true"><Name>Fancy</Name><BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType></Symbol></DataArea>
+          <ContextId>1</ContextId>
+          <Symbol CreateSymbol="true">
+            <Name>Fancy</Name>
+            <BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType>
+          </Symbol>
+        </DataArea>
+        <DataArea>
+          <AreaNo AreaType="Standard">2</AreaNo>
+          <Name>Members</Name>
+          <ContextId>1</ContextId>
+          <Symbol CreateSymbol="true">
+            <Name>Fancy</Name>
+            <BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType>
+          </Symbol>
+        </DataArea>
       </DataAreas>
+      <InterfacePointers>
+        <InterfacePointer>
+          <PTCID>#x03002060</PTCID>
+          <Name>CyclicCaller</Name>
+          <Type GUID="{0300001e-0000-0000-e000-000000000064}">ITcCyclicCaller</Type>
+        </InterfacePointer>
+      </InterfacePointers>
+      <DataPointers />
+      <Deployment>
+        <FileEntry TargetPlatform="TwinCAT RT (x86)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x86)\%CLASSFACTORYNAME%.sys</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.sys</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x86)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x86)\%CLASSFACTORYNAME%.pdb</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.pdb</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x64)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x64)\%CLASSFACTORYNAME%.sys</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.sys</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x64)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x64)\%CLASSFACTORYNAME%.pdb</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.pdb</DestinationFile>
+        </FileEntry>
+      </Deployment>
+    </Module>
+    <Module GUID="{baab62b9-a81c-47c4-8383-71c0d5c487a0}" Group="C++">
+      <Name>ModuleBeispiel3Consumer</Name>
+      <CLSID ClassFactory="beispiele">{baab62b9-a81c-47c4-8383-71c0d5c487a0}</CLSID>
+      <Licenses>
+        <License>
+          <LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
+          <Comment>TC3 C++</Comment>
+        </License>
+      </Licenses>
+      <InitSequence>SO</InitSequence>
+      <Contexts>
+        <Context>
+          <Id>1</Id>
+        </Context>
+      </Contexts>
+      <Interfaces>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+        </Interface>
+        <Interface>
+          <Type GUID="{03000010-0000-0000-E000-000000000064}">ITcCyclic</Type>
+        </Interface>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{03000012-0000-0000-E000-000000000064}">ITcADI</Type>
+        </Interface>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
+        </Interface>
+      </Interfaces>
+      <Parameters>
+        <Parameter HideParameter="true">
+          <Name>TraceLevelMax</Name>
+          <Comment>Controls the amount of log messages.</Comment>
+          <BaseType GUID="{8007ae3b-86bb-40f2-b385-ef87fcc239a4}">TcTraceLevel</BaseType>
+          <PTCID>#x03002103</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter>
+      </Parameters>
+      <DataAreas ><DataArea><AreaNo AreaType="Standard">1</AreaNo><Name>Data</Name><ContextId>1</ContextId><Symbol CreateSymbol="true"><Name>FancyData</Name><BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType></Symbol></DataArea></DataAreas>
+      <InterfacePointers>
+        <InterfacePointer>
+          <PTCID>#x03002060</PTCID>
+          <Name>CyclicCaller</Name>
+          <Type GUID="{0300001e-0000-0000-e000-000000000064}">ITcCyclicCaller</Type>
+        </InterfacePointer><InterfacePointer><PTCID>#x00000001</PTCID><Name>IPFancyService</Name><Type GUID="{4400d997-c606-47b2-8486-fa74a26f4e2f}">IFancyService</Type><ContextId>1</ContextId></InterfacePointer>
+      </InterfacePointers>
+      <DataPointers />
+      <Deployment>
+        <FileEntry TargetPlatform="TwinCAT RT (x86)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x86)\%CLASSFACTORYNAME%.sys</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.sys</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x86)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x86)\%CLASSFACTORYNAME%.pdb</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.pdb</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x64)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x64)\%CLASSFACTORYNAME%.sys</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.sys</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x64)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x64)\%CLASSFACTORYNAME%.pdb</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.pdb</DestinationFile>
+        </FileEntry>
+      </Deployment>
+    </Module>
+    <Module GUID="{a8bc3f86-0f56-49ae-a1f6-0173ead4a5fe}" Group="C++">
+      <Name>ModuleBeispiel3Service</Name>
+      <CLSID ClassFactory="beispiele">{a8bc3f86-0f56-49ae-a1f6-0173ead4a5fe}</CLSID>
+      <Licenses>
+        <License>
+          <LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
+          <Comment>TC3 C++</Comment>
+        </License>
+      </Licenses>
+      <InitSequence>SO</InitSequence>
+      <Contexts>
+        <Context>
+          <Id>1</Id>
+        </Context>
+      </Contexts>
+      <Interfaces>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+        </Interface>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{03000012-0000-0000-E000-000000000064}">ITcADI</Type>
+        </Interface>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
+        </Interface><Interface><Type GUID="{4400d997-c606-47b2-8486-fa74a26f4e2f}">IFancyService</Type></Interface>
+      </Interfaces>
+      <Parameters>
+        <Parameter HideParameter="true">
+          <Name>TraceLevelMax</Name>
+          <Comment>Controls the amount of log messages.</Comment>
+          <BaseType GUID="{8007ae3b-86bb-40f2-b385-ef87fcc239a4}">TcTraceLevel</BaseType>
+          <PTCID>#x03002103</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter><Parameter><Name>FancyParameter</Name><BaseType GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}">FancyData</BaseType><PTCID>#x00000001</PTCID><ContextId>1</ContextId></Parameter>
+      </Parameters>
+      <DataAreas />
       <InterfacePointers>
         <InterfacePointer>
           <PTCID>#x03002060</PTCID>
