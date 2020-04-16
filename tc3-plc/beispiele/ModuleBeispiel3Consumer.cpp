@@ -142,6 +142,9 @@ HRESULT CModuleBeispiel3Consumer::SetObjStateOS()
 
 	RemoveModuleFromCaller(); 
 
+	// interface pointer referenz muss entfernt werden
+	m_spIPFancyService = NULL;
+
 	m_Trace.Log(tlVerbose, FLEAVEA "hr=0x%08x", hr);
 	return hr;
 }
