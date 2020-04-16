@@ -49,6 +49,7 @@
     <ClInclude Include="ModuleBeispiel2Out.h" />
     <ClInclude Include="ModuleBeispiel3Consumer.h" />
     <ClInclude Include="ModuleBeispiel3Service.h" />
+    <ClInclude Include="ModuleBeispiel4PlcIoAdsCommunication.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="TcPch.h" />
     <ClInclude Include="beispieleClassFactory.h" />
@@ -63,6 +64,7 @@
     <ClCompile Include="ModuleBeispiel2Out.cpp" />
     <ClCompile Include="ModuleBeispiel3Consumer.cpp" />
     <ClCompile Include="ModuleBeispiel3Service.cpp" />
+    <ClCompile Include="ModuleBeispiel4PlcIoAdsCommunication.cpp" />
     <ClCompile Include="TcPch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|TwinCAT UM (x86)'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|TwinCAT RT (x86)'">Create</PrecompiledHeader>

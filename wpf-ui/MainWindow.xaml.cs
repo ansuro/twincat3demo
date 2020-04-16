@@ -81,6 +81,12 @@ namespace wpf_ui
                 UInt32 value = reader.ReadUInt32();
                 result = "id: " + id + " value: " + value;
             }
+            else if (e.NotificationHandle.Equals(bsp4NotificationHandle1))
+            {
+                byte b = reader.ReadByte();
+                //Console.WriteLine(b);
+                result = b.ToString();
+            }
             else
             {
                 // unknown notification
@@ -98,6 +104,7 @@ namespace wpf_ui
             bsp1NotificationHandle = adsClient.AddDeviceNotification(bsp1Symbole, bsp1ReadStream, AdsTransMode.OnChange, 200, 0, lblMemberUpdate);
             bsp2NotificationHandle = adsClient.AddDeviceNotification(bsp2Symbole, bsp2ReadStream, AdsTransMode.OnChange, 200, 0, lblDataUpdate);
             bsp3NotificationHandle = adsClient.AddDeviceNotification(bsp3Symbole, bsp3ReadStream, AdsTransMode.OnChange, 200, 0, lblServiceUpdate);
+            bsp4NotificationHandle1 = adsClient.AddDeviceNotification(bsp4SymboleIO, bsp4ReadStream1, AdsTransMode.OnChange, 200, 0, lblPLCIOUpdate);
         }
 
         private void DisposeBeispiele()
@@ -105,11 +112,13 @@ namespace wpf_ui
             // delete notification handler
             adsClient.DeleteDeviceNotification(bsp1NotificationHandle);
             adsClient.DeleteDeviceNotification(bsp2NotificationHandle);
+            adsClient.DeleteDeviceNotification(bsp3NotificationHandle);
+            adsClient.DeleteDeviceNotification(bsp4NotificationHandle1);
         }
 
         // Beispiel 1 code
         private string bsp1Symbole = "beispiele_Obj1 (ModuleBeispiel1).CppMember";
-        AdsStream bsp1ReadStream = new AdsStream(sizeof(UInt32));
+        private AdsStream bsp1ReadStream = new AdsStream(sizeof(UInt32));
         private int bsp1NotificationHandle = 0;
 
         private void BtnMemberRead_Click(object sender, RoutedEventArgs e)
@@ -135,12 +144,16 @@ namespace wpf_ui
 
         // Beispiel 2 code
         private string bsp2Symbole = "beispiele_Obj3 (ModuleBeispiel2In).Members.Fancy";
-        AdsStream bsp2ReadStream = new AdsStream(sizeof(UInt32) * 2);
+        private AdsStream bsp2ReadStream = new AdsStream(sizeof(UInt32) * 2);
         private int bsp2NotificationHandle = 0;
 
         // Beispiel 3 code
         private string bsp3Symbole = "beispiele_Obj4 (ModuleBeispiel3Consumer).Data.FancyData";
-        AdsStream bsp3ReadStream = new AdsStream(sizeof(UInt32) * 2);
+        private AdsStream bsp3ReadStream = new AdsStream(sizeof(UInt32) * 2);
         private int bsp3NotificationHandle = 0;
+
+        private string bsp4SymboleIO = "beispiele_Obj6 (ModuleBeispiel4PlcIoAdsCommunication).Inputs.PLCX";
+        private AdsStream bsp4ReadStream1 = new AdsStream(sizeof(Byte));
+        private int bsp4NotificationHandle1 = 0;
     }
 }

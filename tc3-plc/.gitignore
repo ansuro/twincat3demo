@@ -1,1 +1,4 @@
 /.vs/**
+/PlcAdsCounter/_Libraries/**
+/PlcAdsCounter/_CompileInfo/**
+/_Boot/**

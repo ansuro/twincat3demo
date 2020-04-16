@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="MAIN" Id="{b82a4c27-3ab9-40c0-800a-24f624775156}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbCounter: TON;
+	tCount: TIME := T#1S;
+	up: BOOL := TRUE;
+	x AT %QB1: USINT := 0;
+	doCount: BOOL := TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Einfaches Programm, welches von 0 bis 5 hoch und wieder hinunter zählt
+
+// Jede Sekunde Wert inkrementieren / dekrementieren
+fbCounter(IN := TRUE, PT := tCount, Q => doCount);
+IF doCount THEN
+	IF up THEN
+		x := x + 1;
+	ELSE
+		x := x - 1;
+	END_IF;
+	
+	// Zählrichtung evaluieren 
+	IF x = 5 THEN
+		up := FALSE;
+	ELSIF x = 0 THEN
+		up := TRUE;
+	END_IF
+
+	doCount := FALSE;
+	fbCounter(IN := FALSE);
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="6" Count="2" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="9" Count="11" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

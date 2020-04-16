@@ -51,6 +51,19 @@
                     <Label Name="lblServiceUpdate" Content="" HorizontalAlignment="Left" Margin="127,119,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="179"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Beispiel 4" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="63" Margin="19,0,-19,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="86*"/>
+                        <ColumnDefinition Width="307*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Beschreibung" HorizontalAlignment="Left" Height="104" Margin="10,10,0,0" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="2">
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,-12"><Run Text="Dieses Beispiel zeigt, wie "/><Run Text="Daten "/><Run Text="von einem PLC-Programm in ein C++Modul übertragen werden können. "/><Run Text="Das Programm zählt sekündlich von 0-5 und wieder zurück und überträgt den Wert. "/><LineBreak/><Run Text="In der ersten Variante wird IO-Mapping verwendet, im zweiten ein ADS-Notification-Handler (TODO)"/></TextBlock>
+                    </GroupBox>
+                    <Label Content="onChange updates (PLC -> IO -> C++Module):" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="272" Grid.ColumnSpan="2"/>
+                    <Label Name="lblPLCIOUpdate" Content="" HorizontalAlignment="Left" Margin="125,119,0,0" VerticalAlignment="Top" Width="179" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
