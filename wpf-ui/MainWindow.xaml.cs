@@ -81,7 +81,7 @@ namespace wpf_ui
                 UInt32 value = reader.ReadUInt32();
                 result = "id: " + id + " value: " + value;
             }
-            else if (e.NotificationHandle.Equals(bsp4NotificationHandle1))
+            else if (e.NotificationHandle.Equals(bsp4NotificationHandle1) || e.NotificationHandle.Equals(bsp4NotificationHandle2))
             {
                 byte b = reader.ReadByte();
                 //Console.WriteLine(b);
@@ -105,6 +105,7 @@ namespace wpf_ui
             bsp2NotificationHandle = adsClient.AddDeviceNotification(bsp2Symbole, bsp2ReadStream, AdsTransMode.OnChange, 200, 0, lblDataUpdate);
             bsp3NotificationHandle = adsClient.AddDeviceNotification(bsp3Symbole, bsp3ReadStream, AdsTransMode.OnChange, 200, 0, lblServiceUpdate);
             bsp4NotificationHandle1 = adsClient.AddDeviceNotification(bsp4SymboleIO, bsp4ReadStream1, AdsTransMode.OnChange, 200, 0, lblPLCIOUpdate);
+            bsp4NotificationHandle2 = adsClient.AddDeviceNotification(bsp4SymboleADS, bsp4ReadStream2, AdsTransMode.OnChange, 200, 0, lblPLCADSUpdate);
         }
 
         private void DisposeBeispiele()
@@ -114,6 +115,7 @@ namespace wpf_ui
             adsClient.DeleteDeviceNotification(bsp2NotificationHandle);
             adsClient.DeleteDeviceNotification(bsp3NotificationHandle);
             adsClient.DeleteDeviceNotification(bsp4NotificationHandle1);
+            adsClient.DeleteDeviceNotification(bsp4NotificationHandle2);
         }
 
         // Beispiel 1 code
@@ -152,8 +154,13 @@ namespace wpf_ui
         private AdsStream bsp3ReadStream = new AdsStream(sizeof(UInt32) * 2);
         private int bsp3NotificationHandle = 0;
 
+        // Beispiel 4 code
         private string bsp4SymboleIO = "beispiele_Obj6 (ModuleBeispiel4PlcIoAdsCommunication).Inputs.PLCX";
         private AdsStream bsp4ReadStream1 = new AdsStream(sizeof(Byte));
         private int bsp4NotificationHandle1 = 0;
+
+        private string bsp4SymboleADS = "beispiele_Obj6 (ModuleBeispiel4PlcIoAdsCommunication).Outputs.AdsX";
+        private AdsStream bsp4ReadStream2 = new AdsStream(sizeof(Byte));
+        private int bsp4NotificationHandle2 = 0;
     }
 }

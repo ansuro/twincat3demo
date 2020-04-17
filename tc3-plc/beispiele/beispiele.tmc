@@ -26,7 +26,7 @@
           <Type GUID="{602e8c46-bba3-447b-a46b-00eb30a09f7e}" PointerTo="1">FancyData</Type>
         </Parameter>
       </Method>
-    </DataType>
+    </DataType><DataType><Name GUID="{1850f391-9711-44a8-9d7a-dad0aafdac81}">MyAdsStatus</Name><BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType><EnumInfo><Text><![CDATA[ADS_STATUS_INIT]]></Text><Enum>0</Enum></EnumInfo><EnumInfo><Text><![CDATA[ADS_STATUS_WAIT]]></Text><Enum>1</Enum></EnumInfo><EnumInfo><Text><![CDATA[ADS_STATUS_ERRORADSCOM]]></Text><Enum>2</Enum></EnumInfo><EnumInfo><Text><![CDATA[ADS_STATUS_ADD_NOTIFICATION]]></Text><Enum>3</Enum></EnumInfo><Hides><Hide GUID="{7efce20d-db97-4935-b5c0-9815e5831b18}" /><Hide GUID="{1052756b-d33b-453e-94dc-71b44b0684e5}" /><Hide GUID="{05bb9d45-4571-4200-a866-aa45599dc87a}" /><Hide GUID="{208660c6-7e9b-4f05-af4b-029223b6324d}" /><Hide GUID="{432751f9-86b5-4c1d-ac19-13a343ab4ead}" /></Hides></DataType>
   </DataTypes>
   <Groups>
     <Group SortOrder="701">
@@ -461,7 +461,7 @@
           <ContextId>1</ContextId>
         </Parameter>
       </Parameters>
-      <DataAreas ><DataArea><AreaNo AreaType="InputDst">1</AreaNo><Name>Inputs</Name><ContextId>1</ContextId><Symbol CreateSymbol="true"><Name>PLCX</Name><DisplayName TxtId="" /><BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType></Symbol></DataArea></DataAreas>
+      <DataAreas ><DataArea><AreaNo AreaType="InputDst">1</AreaNo><Name>Inputs</Name><ContextId>1</ContextId><Symbol CreateSymbol="true"><Name>PLCX</Name><DisplayName TxtId="" /><BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType></Symbol></DataArea><DataArea><AreaNo AreaType="Standard">2</AreaNo><Name>AdsData</Name><ContextId>1</ContextId><Symbol><Name>hVariableNotification</Name><BaseType GUID="{18071995-0000-0000-0000-000000000009}">DINT</BaseType></Symbol><Symbol><Name>hVariableHandle</Name><BaseType GUID="{18071995-0000-0000-0000-000000000009}">DINT</BaseType></Symbol><Symbol><Name>Status</Name><BaseType GUID="{1850f391-9711-44a8-9d7a-dad0aafdac81}">MyAdsStatus</BaseType></Symbol><Properties></Properties></DataArea><DataArea><AreaNo AreaType="OutputSrc" CreateSymbols="true">3</AreaNo><Name>Outputs</Name><ContextId>1</ContextId><Symbol><Name>AdsX</Name><BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType></Symbol></DataArea></DataAreas>
       <InterfacePointers>
         <InterfacePointer>
           <PTCID>#x03002060</PTCID>

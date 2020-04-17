@@ -32,6 +32,34 @@
 				</Parameter>
 			</Method>
 		</DataType>
+		<DataType>
+			<Name GUID="{1850F391-9711-44A8-9D7A-DAD0AAFDAC81}">MyAdsStatus</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[ADS_STATUS_INIT]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ADS_STATUS_WAIT]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ADS_STATUS_ERRORADSCOM]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ADS_STATUS_ADD_NOTIFICATION]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<Hides>
+				<Hide GUID="{7EFCE20D-DB97-4935-B5C0-9815E5831B18}"/>
+				<Hide GUID="{1052756B-D33B-453E-94DC-71B44B0684E5}"/>
+				<Hide GUID="{05BB9D45-4571-4200-A866-AA45599DC87A}"/>
+				<Hide GUID="{208660C6-7E9B-4F05-AF4B-029223B6324D}"/>
+				<Hide GUID="{432751F9-86B5-4C1D-AC19-13A343AB4EAD}"/>
+			</Hides>
+		</DataType>
 	</DataTypes>
 	<Project ProjectGUID="{FCD41AB5-16AE-4374-8902-569AE7437A21}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
@@ -627,15 +655,39 @@
 						</Parameters>
 						<DataAreas>
 							<DataArea>
-								<AreaNo AreaType="InputDst" ShowSymbols="true">1</AreaNo>
+								<AreaNo AreaType="InputDst">1</AreaNo>
 								<Name>Inputs</Name>
 								<ContextId>1</ContextId>
 								<ByteSize>1</ByteSize>
-								<Symbol>
+								<Symbol CreateSymbol="true">
 									<Name>PLCX</Name>
 									<BitSize>8</BitSize>
 									<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
 									<BitOffs>0</BitOffs>
+								</Symbol>
+							</DataArea>
+							<DataArea>
+								<AreaNo AreaType="Standard">2</AreaNo>
+								<Name>AdsData</Name>
+								<ContextId>1</ContextId>
+								<ByteSize>10</ByteSize>
+								<Symbol>
+									<Name>hVariableNotification</Name>
+									<BitSize>32</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000009}">DINT</BaseType>
+									<BitOffs>0</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>hVariableHandle</Name>
+									<BitSize>32</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-000000000009}">DINT</BaseType>
+									<BitOffs>32</BitOffs>
+								</Symbol>
+								<Symbol>
+									<Name>Status</Name>
+									<BitSize>16</BitSize>
+									<BaseType GUID="{1850F391-9711-44A8-9D7A-DAD0AAFDAC81}">MyAdsStatus</BaseType>
+									<BitOffs>64</BitOffs>
 								</Symbol>
 							</DataArea>
 						</DataAreas>
@@ -684,6 +736,7 @@
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-0020-0201-3000-010120000101}" Id="#x02030010"/>
+		<MappingInfo Identifier="{02010020-2001-0850-6000-010100205008}" Id="#x02030020" Watchdog="04000000040000000400000004000000"/>
 		<OwnerA Name="TIPC^PlcAdsCounter^PlcAdsCounter Instance">
 			<OwnerB Name="TIXC^beispiele^beispiele_Obj6 (ModuleBeispiel4PlcIoAdsCommunication)">
 				<Link VarA="PlcTask Outputs^MAIN.x" VarB="Inputs^PLCX"/>
